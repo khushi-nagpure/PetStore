@@ -1,0 +1,36 @@
+{% include 'base/header.html' %}
+    {% block content %}
+    <div style="display: flex;justify-content:center;text-align:center;">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-outline">
+                <div class="col-lg-12">
+                    <div class="form-group position-relative">
+                        <label>Username:<span class="text-danger">*</span></label>
+                        {{ form.username }}
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="form-group position-relative">
+                        <label>Password:<span class="text-danger">*</span></label>
+                        {{ form.password }}
+                    </div>
+                </div>
+
+                <div class="col-lg-12 mb-0">
+                    <button class="btn btn-primary w-100" type="submit">Login</button>
+                </div>
+
+                <div class="col-lg-12 text-center">
+                    <p class="mb-0 mt-3">
+                        <small class="text-dark mr-2">Don't HAve An Account ?</small>
+                        <a href="{% url 'register-page' %}" class="text-dark font-weight-bold ">Sign-up</a>
+                    </p>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    {% endblock %}
+{% include 'base/footer.html' %}
